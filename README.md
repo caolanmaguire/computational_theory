@@ -6,7 +6,6 @@
 |----------------------|--------------------------|
 | **Student Number**   | G00385433               |
 | **Module**           | Computational Theory   |
-| **Eliza Chatbot**           |  |
 | **Video Walkthrough**  |  |
 | **Date**             | 🕒  |
 
