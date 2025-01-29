@@ -1,5 +1,7 @@
 # Computational theory project
 
+<img src="https://github.com/caolanmaguire/calsickofthis/blob/main/COMPUTAT.png"alt="computational theory caolan's banner" style="width: 100%;"/>
+
 | **Student**          | Caolán Maguire       |
 |----------------------|--------------------------|
 | **Student Number**   | G00385433               |
