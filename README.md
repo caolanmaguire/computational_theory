@@ -2,6 +2,7 @@
 
 <img src="https://github.com/caolanmaguire/calsickofthis/blob/main/COMPUTAT.png" alt="computational theory caolan's banner" style="width: 100%;"/>
 
+# Info
 | **Student**          | Caolán Maguire       |
 |----------------------|--------------------------|
 | **Student Number**   | G00385433               |
@@ -9,14 +10,13 @@
 | **Video Walkthrough**  |  |
 | **Date**             | 🕒  |
 
-
-## Eliza Chatbot
-
+#Body Of Readme
 ## Research & additional features
 ## History
 
 ### Useful Videos / Repositories
 
+# Tasks
 ### Differences between ELIZA and ChatGPT
 ## Jupyter Notebook Tasks
 ### Task 1: Binary Representations
@@ -28,7 +28,7 @@
 ### Task 7: Turing Machines
 ### Task 8: Computational Complexity
 ## Historical Principles in These Tasks:
-## Getting Started
+# Getting Started
 ### Cloning the Repository
 
 ```bash
