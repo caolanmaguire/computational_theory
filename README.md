@@ -10,7 +10,6 @@
 | **Video Walkthrough**  |  |
 | **Date**             | 🕒  |
 
-#Body Of Readme
 ## Research & additional features
 ## History
 
