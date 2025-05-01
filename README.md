@@ -7,8 +7,6 @@
 |----------------------|--------------------------|
 | **Student Number**   | G00385433               |
 | **Module**           | Computational Theory   |
-| **Video Walkthrough**  |  |
-| **Date**             | 🕒  |
 
 ## Research & additional features
 ## History
