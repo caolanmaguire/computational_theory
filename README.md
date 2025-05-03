@@ -10,18 +10,17 @@ This semester-long project explores fundamental concepts in computational theory
 
 ## Task 1: Binary Representations
 
-This task implements fundamental bitwise operations that are essential in computer science, particularly in cryptography, system-level programming, and hardware interfaces. The functions provide efficient bit-level manipulations that form the foundation for various algorithms and security protocols.
+This task implements fundamental bitwise operations that are essential in computer science, particularly in cryptography, system-level programming, and hardware interfaces. The functions provide efficient bit-level manipulations that form the foundation for various algorithms and security protocols [1].
 
 ### Implementation
 
 #### Bit Rotation Functions
 
-
 The `rotl()` and `rotr()` functions implement circular bit shifting operations for 32-bit unsigned integers. Unlike standard bit shifts, rotations preserve all bits by wrapping them around rather than discarding them.
 
 **Applications:**
 - Hardware register manipulation
-- Hash function algorithms (SHA-256, MD5)
+- Hash function algorithms (SHA-256, MD5) [2]
 - Efficient data permutation in encryption
 
 For example, rotating the 8-bit value `10110011`:
@@ -29,6 +28,7 @@ For example, rotating the 8-bit value `10110011`:
 - Right rotation by 3: `01110110`
 
 The implementation enforces 32-bit boundaries using bitwise AND with `0xFFFFFFFF` and combines shifted components with bitwise OR operations.
+
 
 ```python
 def rotl(x, n=1):
@@ -41,8 +41,43 @@ def rotr(x, n=1):
 ```
 
 #### Choice Function
+The `ch()` function implements a bitwise choice operation used in cryptographic hash functions like SHA-256. It selectively chooses bits from two inputs (y and z) based on a control input (x).
+Operation:
+
+For each bit position in the 32-bit values:
+
+If the corresponding bit in x is 1, select the bit from y
+If the corresponding bit in x is 0, select the bit from z
+
+
+
+**Applications:**
+
+Core component in SHA-256 and other hash algorithms
+Efficient conditional bit selection without branching
+Creating complex bit patterns in cryptographic operations
+
+The implementation uses boolean logic with bitwise operators (AND, XOR, NOT) and ensures 32-bit boundaries with a mask.
 
 #### Majority Function
+
+The `maj()` function implements a bitwise majority operation commonly used in cryptographic hash functions such as SHA-256. It determines the most common bit value across three inputs for each bit position.
+Operation:
+
+For each bit position in the 32-bit values:
+
+Output 1 if two or more of the corresponding bits in x, y, and z are 1
+Output 0 if two or more of the corresponding bits are 0
+
+
+
+**Applications:*
+
+Essential component in SHA-256 and related hash algorithms
+Provides nonlinearity in cryptographic primitives
+Implements bit-level "voting" logic without conditionals
+
+The implementation uses a combination of bitwise AND and XOR operations to efficiently compute the majority value across all 32 bit positions simultaneously, with a final mask ensuring the result stays within 32-bit boundaries.
 
 #### Usage Examples
 
@@ -158,6 +193,8 @@ Convert it to Python, test it, and suggest why the values 31 and 101 are used.
 #### Tests
 
 ## References
+
+[1] [Computer Organisation and design: The Hardware/Software Interface - Patterson & Hennessy](https://shop.elsevier.com/books/computer-organization-and-design-mips-edition/patterson/978-0-12-820109-1)
 
 
 <!--Arora, S., & Barak, B. (2009). *Computational Complexity: A Modern Approach*. Cambridge University Press.
