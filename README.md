@@ -65,6 +65,16 @@ def rotr(x, n=1):
 
 ## Task 2: Hash Functions
 
+The following hash function is from The C Programming Language by Brian Kernighan and Dennis Ritchie.
+Convert it to Python, test it, and suggest why the values 31 and 101 are used.
+
+`unsigned hash(char *s) {
+    unsigned hashval;
+    for (hashval = 0; *s != '\0'; s++)
+        hashval = *s + 31 * hashval;
+    return hashval % 101;
+}`
+
 #### Implementation
 
 #### Choice Function
