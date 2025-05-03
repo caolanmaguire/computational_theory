@@ -48,6 +48,21 @@ def rotr(x, n=1):
 
 #### Tests
 
+```python
+    #Tests for each of Binary Representations Functions
+    def test_rotl():
+        assert rotl(0x00000001, 1) == 0x00000002
+        assert rotl(0x80000000, 1) == 0x00000001
+        assert rotl(0x12345678, 4) == 0x23456781
+        assert rotl(0xFFFFFFFF, 16) == 0xFFFFFFFF
+
+    def test_rotr():
+        assert rotr(0x00000001, 1) == 0x80000000
+        assert rotr(0x80000000, 1) == 0x40000000
+        assert rotr(0x12345678, 4) == 0x81234567
+        assert rotr(0xFFFFFFFF, 16) == 0xFFFFFFFF
+```
+
 ## Task 2: Hash Functions
 
 #### Implementation
