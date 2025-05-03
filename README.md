@@ -183,7 +183,8 @@ def sieve_of_eratosthenes(n) -> list:
             if len(primes) == 100:
                 break
     
-    return primes```
+    return primes
+```
 
 **Algorithm 2: Incremental Sieve**
 
@@ -223,7 +224,8 @@ We continue until we've found the desired number of primes
         
     return primes
 
-print(incremental_sieve(100))```
+print(incremental_sieve(100))
+```
 
 
 
