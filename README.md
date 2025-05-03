@@ -42,6 +42,17 @@ def rotr(x, n=1):
 
 #### Choice Function
 
+```
+# CHOOSE FUNCTION
+def ch(x, y, z):
+    """
+    For each bit position:
+    - Choose bit from y if bit in x is 1
+    - Choose bit from z if bit in x is 0
+    """
+    return (x & y) ^ (~x & z) & 0xFFFFFFFF
+```
+
 The `ch()` function implements a bitwise choice operation used in cryptographic hash functions like SHA-256. It selectively chooses bits from two inputs (y and z) based on a control input (x).
 Operation:
 
@@ -61,6 +72,15 @@ Creating complex bit patterns in cryptographic operations
 The implementation uses boolean logic with bitwise operators (AND, XOR, NOT) and ensures 32-bit boundaries with a mask.
 
 #### Majority Function
+
+```
+# MAJORITY FUNCTION
+def maj(x, y, z):
+    """
+    For each bit position, return 1 if at least two of the bits in x, y, z are 1.
+    """
+    return ((x & y) ^ (x & z) ^ (y & z)) & 0xFFFFFFFF
+```
 
 The `maj()` function implements a bitwise majority operation commonly used in cryptographic hash functions such as SHA-256. It determines the most common bit value across three inputs for each bit position.
 Operation:
@@ -136,10 +156,11 @@ The function employs several important mathematical principles:
 
 ## Task 3: SHA256
 
-How SHA-256 Padding Works
+**How SHA-256 Padding Works**
+
 SHA-256 processes data in 512-bit blocks, but messages rarely align perfectly with this boundary. The padding ensures all messages are properly formatted before hashing by:
 
-Appending the '1' bit: The padding begins by appending "a single '1' bit" to the message Stack Exchange, represented as the byte 0x80 (binary 10000000) in the code [[9]](https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.180-4.pdf).
+**Appending the '1' bit:** The padding begins by appending "a single '1' bit" to the message Stack Exchange, represented as the byte 0x80 (binary 10000000) in the code [[9]](https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.180-4.pdf).
 Adding zero bytes: After the '1' bit, "enough zero bits are appended so that the length in bits of the padded message becomes congruent to 448, modulo 512" Stack Exchange [10]. This ensures the final padded message will be exactly 64 bits short of a complete 512-bit block.
 Appending the message length: Finally, "a 64-bit representation" of the original message length (in bits) is appended Stack Exchange [11]. This length value is stored as a big-endian integer occupying the last 64 bits of the padded message.
 
