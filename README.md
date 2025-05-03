@@ -49,27 +49,88 @@ def rotr(x, n=1):
 #### Tests
 
 ## Task 2: Hash Functions
-Analysis of mapping techniques for data integrity and security applications.
+
+#### Implementation
+
+#### Choice Function
+
+#### Majority Function
+
+#### Usage Examples
+
+#### Tests
 
 ## Task 3: SHA256
-Implementation and examination of the SHA256 cryptographic hash function which was standardized by the National Institute of Standards and Technology (NIST) and remains fundamental to modern security systems (NIST, 2015).
+
+#### Implementation
+
+#### Choice Function
+
+#### Majority Function
+
+#### Usage Examples
+
+#### Tests
 
 ## Task 4: Prime Numbers
-Exploration of prime number theory and its applications in cryptography and number theory.
+
+#### Implementation
+
+#### Choice Function
+
+#### Majority Function
+
+#### Usage Examples
+
+#### Tests
 
 ## Task 5: Mathematical Roots
-Investigation of computational approaches to root-finding algorithms.
+
+#### Implementation
+
+#### Choice Function
+
+#### Majority Function
+
+#### Usage Examples
+
+#### Tests
 
 ## Task 6: Proof of Work
-Analysis of computational challenge systems used in blockchain technology and cryptocurrencies.
+
+#### Implementation
+
+#### Choice Function
+
+#### Majority Function
+
+#### Usage Examples
+
+#### Tests
 
 ## Task 7: Turing Machines
-Implementation of theoretical models of computation based on Turing's original concept.
+
+#### Implementation
+
+#### Choice Function
+
+#### Majority Function
+
+#### Usage Examples
+
+#### Tests
 
 ## Task 8: Computational Complexity
-Exploration of algorithmic efficiency and complexity classes following the framework established by Cook (1971) in his groundbreaking work on NP-completeness.
 
-## Theoretical Framework
+#### Implementation
+
+#### Choice Function
+
+#### Majority Function
+
+#### Usage Examples
+
+#### Tests
 
 ## References
 
