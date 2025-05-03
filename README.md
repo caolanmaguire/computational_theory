@@ -40,6 +40,14 @@ def rotr(x, n=1):
     return ((x >> n) | (x << (32 - n))) & 0xFFFFFFFF
 ```
 
+#### Choice Function
+
+#### Majority Function
+
+#### Usage Examples
+
+#### Tests
+
 ## Task 2: Hash Functions
 Analysis of mapping techniques for data integrity and security applications.
 
@@ -64,6 +72,7 @@ Exploration of algorithmic efficiency and complexity classes following the frame
 ## Theoretical Framework
 
 ## References
+
 
 <!--Arora, S., & Barak, B. (2009). *Computational Complexity: A Modern Approach*. Cambridge University Press.
 
