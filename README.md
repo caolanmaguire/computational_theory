@@ -1,4 +1,4 @@
-<!--![computational theory banner](https://github.com/caolanmaguire/calsickofthis/blob/main/COMPUTAT.png)-->
+![computational theory banner](https://github.com/caolanmaguire/calsickofthis/blob/main/COMPUTAT.png)
 
 # Computational Theory
 Repository for all tasks and work from the Computational Theory Module.
