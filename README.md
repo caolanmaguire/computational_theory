@@ -9,7 +9,36 @@ Repository for all tasks and work from the Computational Theory Module.
 This semester-long project explores fundamental concepts in computational theory, examining both classical and contemporary approaches to computation. The work investigates binary representations, cryptographic hashing, prime number theory, and Turing machines to establish connections between historical computational principles and modern applications. Through practical implementations and theoretical analysis, this project contributes to the understanding of computational complexity and its implications for computer science as described by Sipser (2012) in his seminal work on the theory of computation.-->
 
 ## Task 1: Binary Representations
-Investigation of numerical encoding systems and their computational properties.
+
+This task implements fundamental bitwise operations that are essential in computer science, particularly in cryptography, system-level programming, and hardware interfaces. The functions provide efficient bit-level manipulations that form the foundation for various algorithms and security protocols.
+
+### Implementation
+
+#### Bit Rotation Functions
+
+
+The `rotl()` and `rotr()` functions implement circular bit shifting operations for 32-bit unsigned integers. Unlike standard bit shifts, rotations preserve all bits by wrapping them around rather than discarding them.
+
+**Applications:**
+- Hardware register manipulation
+- Hash function algorithms (SHA-256, MD5)
+- Efficient data permutation in encryption
+
+For example, rotating the 8-bit value `10110011`:
+- Left rotation by 2: `11001110`
+- Right rotation by 3: `01110110`
+
+The implementation enforces 32-bit boundaries using bitwise AND with `0xFFFFFFFF` and combines shifted components with bitwise OR operations.
+
+```python
+def rotl(x, n=1):
+    """Rotate left (circular shift) a 32-bit unsigned integer x by n bits."""
+    return ((x << n) | (x >> (32 - n))) & 0xFFFFFFFF
+
+def rotr(x, n=1):
+    """Rotate right (circular shift) a 32-bit unsigned integer x by n bits."""
+    return ((x >> n) | (x << (32 - n))) & 0xFFFFFFFF
+```
 
 ## Task 2: Hash Functions
 Analysis of mapping techniques for data integrity and security applications.
