@@ -356,15 +356,60 @@ The machine is an example of how computers follow precise rules to solve problem
 
 ## Task 8: Computational Complexity
 
-#### Implementation
+This task involved creating a version of the bubble sort algorithm that tracks how many comparisons it makes during sorting. This version was then used to evaluate how the algorithm performs across every possible arrangement of a five-element list.
 
-#### Choice Function
+**Understanding Bubble Sort**
+Bubble sort is a straightforward, comparison-based sorting technique. It works by repeatedly traversing the list, comparing adjacent values, and swapping them if they’re out of order. With each full pass, the largest remaining unsorted value "bubbles up" toward its correct position. The simplicity of this algorithm makes it useful for understanding core concepts of algorithm efficiency, despite its known limitations with larger datasets.
 
-#### Majority Function
+**Key Features of the Implementation**
+Several enhancements and analytical tools were built into the implementation:
 
-#### Usage Examples
+**Comparison Tracking:** The program keeps count of every comparison made during the sorting process.
 
-#### Tests
+**Early Exit Optimization:** If no swaps are needed during a pass, the algorithm stops early, avoiding unnecessary comparisons.
+
+**Exhaustive Testing:** All 120 permutations of the list [1, 2, 3, 4, 5] were sorted, allowing for a comprehensive performance analysis.
+
+**Theoretical Expectations**
+For a list of size n, bubble sort behaves in the following ways:
+
+**Best Case:** When the list is already sorted, it performs n - 1 comparisons — this reflects a time complexity of O(n).
+
+**Worst Case:** For a reverse-ordered list, it can make up to n(n - 1) / 2 comparisons — leading to O(n²) complexity.
+
+**Average Case:** In general, average performance also trends toward O(n²), due to the high number of comparisons across most permutations.
+
+With n = 5, this means:
+
+Minimum comparisons: 4
+
+Maximum comparisons: 10
+
+**Observations from Testing All Permutations**
+After running the algorithm across every possible permutation of [1, 2, 3, 4, 5], some clear patterns emerged:
+
+**Comparison Range:** The number of comparisons varied from 4 to 10 depending on the initial order of the list.
+
+**Best Case Identified:** The already-sorted list only needed 4 comparisons to confirm its order.
+
+**Worst Case Observed:** The reversed list [5, 4, 3, 2, 1] required all 10 possible comparisons.
+
+**Average Behavior:** Most permutations fell between these extremes, with the average number of comparisons hovering between 8 and 9.
+
+These findings highlight how input structure can significantly affect algorithm performance — even with the same logic being applied.
+
+**Broader Complexity Insights**
+This practical exploration confirms several theoretical principles of computational complexity:
+
+**Quadratic Growth in the Worst Case:** The maximum number of comparisons supports the O(n²) worst-case classification.
+
+**Optimization Benefits:** Early termination drastically improves performance when the input is partially or fully sorted.
+
+**Performance Distribution:** The spread of comparison counts across all permutations offers a clearer picture of the algorithm's real-world average behavior, beyond abstract worst-case limits.
+
+**Conclusion**
+By sorting every permutation of a small dataset and recording how many comparisons bubble sort performed, this task illustrated how theoretical complexity translates into actual performance. It also emphasized the importance of considering not just algorithmic efficiency in the worst case, but also how implementation details and input patterns can influence real-world outcomes.
+
 
 ## References
 
