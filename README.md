@@ -42,7 +42,7 @@ def rotr(x, n=1):
 
 #### Choice Function
 
-```
+```python
 # CHOOSE FUNCTION
 def ch(x, y, z):
     """
@@ -73,7 +73,7 @@ The implementation uses boolean logic with bitwise operators (AND, XOR, NOT) and
 
 #### Majority Function
 
-```
+```python
 # MAJORITY FUNCTION
 def maj(x, y, z):
     """
@@ -180,7 +180,7 @@ In Task 4 we use and compare different algorithms for finding prime numbers, we 
 **Algorithm 1: Sieve of Eratosthenes** 
 The Sieve of Eratosthenes is an ancient and efficient algorithm for finding all prime numbers up to a specified limit. It works by iteratively marking the multiples of each prime number as composite (not prime).
 
-```
+```python
 def sieve_of_eratosthenes(n) -> list:
     # Create a bool array where all entries are initially True
     # A value in prime[i] will finally be False if i is not a prime, else True
@@ -217,7 +217,8 @@ When we find a prime, we add its square to the composites dictionary
 For composite numbers, we advance the smallest prime factor to the next multiple
 We continue until we've found the desired number of primes
 
-```def incremental_sieve(n):
+```python
+def incremental_sieve(n):
     primes = []
     # Dictionary to store smallest prime factor for each composite number
     composites = {}
@@ -254,13 +255,7 @@ print(incremental_sieve(100))
 
 #### Implementation
 
-#### Choice Function
 
-#### Majority Function
-
-#### Usage Examples
-
-#### Tests
 
 ## Task 6: Proof of Work
 
