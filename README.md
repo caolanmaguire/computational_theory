@@ -259,13 +259,52 @@ print(incremental_sieve(100))
 
 ## Task 6: Proof of Work
 
-#### Implementation
+This exercise explores English words yielding SHA256 hashes with the maximum number of leading zero bits, applying the same principle that underpins blockchain "proof of work" systems as outlined in Nakamoto's seminal publication [26].
+Methodology
+The approach leverages Python's hashlib library [27] to generate SHA256 hashes [28] and examines their binary structure:
 
-#### Choice Function
+```python
+# Proof of work component
+def get_words_from_dictionary():
+    # Download a list of English words from a public domain source
+    url = 'https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt'
+    response = urllib.request.urlopen(url)
+    words = response.read().decode().splitlines()
+    return words
 
-#### Majority Function
+def sha256_leading_zero_bits(word):
+    h = hashlib.sha256(word.encode()).digest()
+    bits = ''.join(f'{byte:08b}' for byte in h)
+    return len(bits) - len(bits.lstrip('0'))
 
-#### Usage Examples
+def find_best_proof_of_work():
+    words = get_words_from_dictionary()
+    max_zeros = 0
+    best_words = []
+
+    for word in words:
+        zeros = sha256_leading_zero_bits(word)
+        if zeros > max_zeros:
+            max_zeros = zeros
+            best_words = [word]
+        elif zeros == max_zeros:
+            best_words.append(word)
+
+    print(f"Max leading zero bits: {max_zeros}")
+    print("Word(s) with max leading zero bits:")
+    for w in best_words:
+        print(w)
+        print(f"{w} -> {hashlib.sha256(w.encode()).hexdigest()}")
+```
+
+Process overview:
+
+Imports a comprehensive English word dictionary
+Generates the SHA256 hash representation for each dictionary entry
+Tallies the consecutive zero bits at the beginning of each hash
+Records terms producing hashes with the highest count of leading zeros
+
+This experiment illustrates the core mechanism behind cryptocurrency mining operations, where the objective involves discovering inputs that generate hash values with particular characteristics (specifically, sequences of leading zeros).
 
 #### Tests
 
@@ -303,22 +342,20 @@ The machine works with these symbols:
 
 The rules that control our machine are [20]:
 
-```python
-# Format: {(current_state, symbol_seen): (next_state, symbol_to_write, direction_to_move)}
-transitions = {
-    # First, find the rightmost digit
-    ('init', '0'): ('init', '0', 'R'),
-    ('init', '1'): ('init', '1', 'R'),
-    ('init', 'B'): ('add_one', 'B', 'L'),
-    
-    # Add 1 to the number
-    ('add_one', '0'): ('halt', '1', 'N'),  # Change 0 to 1, we're done
-    ('add_one', '1'): ('add_one', '0', 'L'),  # Change 1 to 0, carry the 1 left
-    ('add_one', 'B'): ('add_leading_one', 'B', 'R'),  # Need to add a new digit
-    
-    # Add a new first digit if needed
-    ('add_leading_one', 'B'): ('halt', '1', 'N')  # Write a 1 at the front
-}
+```pythons
+# First, find the number, furthest to the right
+('init', '0'): ('init', '0', 'R'),
+('init', '1'): ('init', '1', 'R'),
+('init', 'B'): ('add_one', 'B', 'L'),
+
+# Add '1' to number
+('add_one', '0'): ('halt', '1', 'N'),  # Change 0 to 1, we're done
+('add_one', '1'): ('add_one', '0', 'L'),  # Change 1 to 0, carry the 1 left
+('add_one', 'B'): ('add_leading_one', 'B', 'R'),  # Need to add a new digit
+
+# Add a new first digit if you need it
+('add_leading_one', 'B'): ('halt', '1', 'N')  # Write a 1 at the front
+
 ```
 
 These rules create what computer scientists call an "effective procedure" - a clear set of steps that always give the right answer [21].
