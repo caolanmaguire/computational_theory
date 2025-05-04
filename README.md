@@ -1,4 +1,4 @@
-![computational theory banner](https://github.com/caolanmaguire/calsickofthis/blob/main/COMPUTAT.png)
+<!-- ![computational theory banner](https://github.com/caolanmaguire/calsickofthis/blob/main/COMPUTAT.png) -->
 
 # Computational Theory
 Repository for all tasks and work from the Computational Theory Module.
@@ -100,8 +100,6 @@ Implements bit-level "voting" logic without conditionals
 
 The implementation uses a combination of bitwise AND and XOR operations to efficiently compute the majority value across all 32 bit positions simultaneously, with a final mask ensuring the result stays within 32-bit boundaries.
 
-#### Usage Examples
-
 <!-- #### Tests 
 
 ```python
@@ -148,11 +146,7 @@ The function employs several important mathematical principles:
 * Reduces clustering of hash values [[7]](https://computinglife.wordpress.com/2008/11/20/why-do-hash-functions-use-prime-numbers/)
 * Provides a reasonable table size for small applications
 
-#### Implementation
 
-#### Usage Examples
-
-#### Tests
 
 ## Task 3: SHA256
 
@@ -171,7 +165,6 @@ This padding scheme serves several critical purposes:
 It ensures the message is a multiple of 512 bits, as required by the SHA-256 algorithm [13].
 The algorithm adds padding bits so "the message's length is precisely 64 bits less than a multiple of 512" Passwork Blog to accommodate the 64-bit length value [14].
 It makes the hash function resistant to length extension attacks by incorporating the message length in the hash calculation [15].
-#### Tests
 
 ## Task 4: Prime Numbers
 
@@ -411,7 +404,6 @@ Records terms producing hashes with the highest count of leading zeros
 
 This experiment illustrates the core mechanism behind cryptocurrency mining operations, where the objective involves discovering inputs that generate hash values with particular characteristics (specifically, sequences of leading zeros).
 
-#### Tests
 
 ## Task 7: Turing Machines
 
@@ -493,8 +485,6 @@ This simple Turing machine shows several important computer science ideas:
 * It demonstrates a basic building block that can be combined to make more complex calculations [25]
 
 The machine is an example of how computers follow precise rules to solve problems, from the simplest calculator to the most powerful supercomputer.
-
-#### Tests
 
 ## Task 8: Computational Complexity
 
@@ -608,17 +598,3 @@ By sorting every permutation of a small dataset and recording how many compariso
 [24] Knuth, D. E. (1997). "The Art of Computer Programming, Volume 1: Fundamental Algorithms". Addison-Wesley.
 
 [25] Boolos, G. S., & Jeffrey, R. C. (1989). "Computability and Logic". Cambridge University Press.
-
-
-
-<!--Arora, S., & Barak, B. (2009). *Computational Complexity: A Modern Approach*. Cambridge University Press.
-
-Cook, S. A. (1971). The complexity of theorem-proving procedures. In *Proceedings of the Third Annual ACM Symposium on Theory of Computing* (pp. 151-158).
-
-National Institute of Standards and Technology. (2015). *Secure Hash Standard (SHS)*. FIPS PUB 180-4.
-
-Sipser, M. (2012). *Introduction to the Theory of Computation* (3rd ed.). Cengage Learning.
-
-Turing, A. M. (1936). On computable numbers, with an application to the Entscheidungsproblem. *Proceedings of the London Mathematical Society*, 2(1), 230-265.
-
-Weizenbaum, J. (1966). ELIZA—a computer program for the study of natural language communication between man and machine. *Communications of the ACM*, 9(1), 36-45.-->
