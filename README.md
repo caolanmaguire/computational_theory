@@ -402,6 +402,26 @@ The machine is an example of how computers follow precise rules to solve problem
 
 [15] Kelsey, J. & Schneier, B. "Second Preimages on n-bit Hash Functions for Much Less than 2^n Work." Advances in Cryptology - EUROCRYPT 2005.
 
+[16] Turing, A. M. (1936). "On Computable Numbers, with an Application to the Entscheidungsproblem". Proceedings of the London Mathematical Society, s2-42(1), 230-265.
+
+[17] Hopcroft, J. E., & Ullman, J. D. (1979). "Introduction to Automata Theory, Languages, and Computation". Addison-Wesley.
+
+[18] Sipser, M. (2012). "Introduction to the Theory of Computation". Cengage Learning.
+
+[19] Minsky, M. L. (1967). "Computation: Finite and Infinite Machines". Prentice-Hall.
+
+[20] Kleene, S. C. (1952). "Introduction to Metamathematics". North-Holland.
+
+[21] Davis, M. (1982). "Computability and Unsolvability". Dover Publications.
+
+[22] Church, A. (1941). "The Calculi of Lambda-Conversion". Princeton University Press.
+
+[23] Arora, S., & Barak, B. (2009). "Computational Complexity: A Modern Approach". Cambridge University Press.
+
+[24] Knuth, D. E. (1997). "The Art of Computer Programming, Volume 1: Fundamental Algorithms". Addison-Wesley.
+
+[25] Boolos, G. S., & Jeffrey, R. C. (1989). "Computability and Logic". Cambridge University Press.
+
 
 
 <!--Arora, S., & Barak, B. (2009). *Computational Complexity: A Modern Approach*. Cambridge University Press.
