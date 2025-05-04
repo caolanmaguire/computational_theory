@@ -439,7 +439,7 @@ The machine works with these symbols:
 
 The rules that control our machine are [[16]](https://www.cambridge.org/core/journals/mathematical-gazette/article/abs/introduction-to-metamathematics-by-s-c-kleene-pp-x-550-fl-3250-1952-noordhoff-groningen-northholland-publishing-co-amsterdam/9936DE90DBB4EB797F6C7C1AF9859DF5):
 
-```pythons
+```python
 # First, find the number, furthest to the right
 ('init', '0'): ('init', '0', 'R'),
 ('init', '1'): ('init', '1', 'R'),
