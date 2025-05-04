@@ -271,13 +271,86 @@ print(incremental_sieve(100))
 
 ## Task 7: Turing Machines
 
-#### Implementation
+### Adding 1 to a Binary Number with a Turing Machine
 
-#### Choice Function
+This project creates a Turing machine that adds 1 to a binary number. It shows key ideas from computer theory based on Alan Turing's famous 1936 paper [16]. The machine demonstrates what computer scientists call a "universal computation model" [17].
 
-#### Majority Function
+#### What is a Turing Machine?
 
-#### Usage Examples
+A Turing machine has these basic parts:
+
+* A tape divided into cells (each holding a symbol like 0, 1, or blank)
+* A read/write head that moves along the tape
+* A set of states (like modes the machine can be in)
+* A list of rules that tell the machine what to do next
+
+Turing machines are important because they can do any calculation that a modern computer can do, just more slowly [18].
+
+#### Our Binary Adding Machine
+
+Our Turing machine has these states [19]:
+
+* `init`: Starting state that moves to the rightmost digit
+* `add_one`: State that handles the adding operation
+* `add_leading_one`: State for when we need to add a new digit
+* `halt`: Final state when we're finished
+
+The machine works with these symbols:
+* 0 and 1 (binary digits)
+* B (blank space)
+
+##### Rules Table
+
+The rules that control our machine are [20]:
+
+```python
+# Format: {(current_state, symbol_seen): (next_state, symbol_to_write, direction_to_move)}
+transitions = {
+    # First, find the rightmost digit
+    ('init', '0'): ('init', '0', 'R'),
+    ('init', '1'): ('init', '1', 'R'),
+    ('init', 'B'): ('add_one', 'B', 'L'),
+    
+    # Add 1 to the number
+    ('add_one', '0'): ('halt', '1', 'N'),  # Change 0 to 1, we're done
+    ('add_one', '1'): ('add_one', '0', 'L'),  # Change 1 to 0, carry the 1 left
+    ('add_one', 'B'): ('add_leading_one', 'B', 'R'),  # Need to add a new digit
+    
+    # Add a new first digit if needed
+    ('add_leading_one', 'B'): ('halt', '1', 'N')  # Write a 1 at the front
+}
+```
+
+These rules create what computer scientists call an "effective procedure" - a clear set of steps that always give the right answer [21].
+
+#### How It Works
+
+The machine follows these steps:
+
+1. Move to the rightmost digit
+2. If it sees a 0, change it to 1 and stop
+3. If it sees a 1, change it to 0 and carry the 1 to the left
+4. If all digits were 1, add a new 1 at the front
+
+For example, adding 1 to 1011 (decimal 11):
+1. The machine finds the rightmost digit
+2. It changes the rightmost 1 to 0 and carries the 1 left
+3. It changes the next 1 to 0 and carries the 1 left
+4. It changes 0 to 1 and stops
+5. The result is 1100 (decimal 12)
+
+This shows how a computer can do math step by step [22].
+
+#### Why This Matters
+
+This simple Turing machine shows several important computer science ideas:
+
+* It runs in time proportional to the number of digits (O(n) complexity) [23]
+* It shows how even simple machines can do useful calculations
+* As computer pioneer Donald Knuth noted, complex operations can be built from simple ones [24]
+* It demonstrates a basic building block that can be combined to make more complex calculations [25]
+
+The machine is an example of how computers follow precise rules to solve problems, from the simplest calculator to the most powerful supercomputer.
 
 #### Tests
 
