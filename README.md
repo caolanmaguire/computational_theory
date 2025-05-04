@@ -253,9 +253,114 @@ print(incremental_sieve(100))
 
 ## Task 5: Mathematical Roots
 
-#### Implementation
+This code extracts the binary representation of the fractional parts of square roots of prime numbers. This can be useful for studying the distribution properties of these irrational numbers and potentially for applications in cryptography or random number generation.
+
+**Core Functions**
+**The Bit Extraction Function**
+
+```python
+
+def extract_fraction_bits(value: float, bit_count: int = 32) -> str:
+    """
+    Extracts the first 'bit_count' bits from the fractional part of 'value'.
+    """
+    fraction = value - math.floor(value)
+    bit_string = ''
+    for _ in range(bit_count):
+        fraction *= 2
+        if fraction >= 1:
+            bit_string += '1'
+            fraction -= 1
+        else:
+            bit_string += '0'
+    return bit_string
+```
+
+This function implements the standard algorithm for converting a decimal fraction to binary:
+
+1.Isolate the fractional part by subtracting the floor of the value
+2.Repeatedly multiply by 2
+3.If the result is ≥ 1, add a '1' bit and subtract 1
+4.If the result is < 1, add a '0' bit
+5.Continue until the desired number of bits is reached
+
+**Computing Prime Square Root Fractions**
 
 
+```python
+
+def compute_prime_sqrt_fractions(prime_count: int = 100, bit_count: int = 32) -> list[tuple[int, str]]:
+    """
+    Computes the square roots of the first 'prime_count' prime numbers and extracts
+    the first 'bit_count' bits of their fractional parts.
+    """
+    # Estimate an upper bound for the nth prime using the prime number theorem
+    if prime_count < 6:
+        upper_bound = 15
+    else:
+        upper_bound = int(prime_count * (math.log(prime_count) + math.log(math.log(prime_count)))) + 1
+    
+    primes = sieve_of_eratosthenes(upper_bound)[:prime_count]
+    results = []
+    for prime in primes:
+        sqrt_val = math.sqrt(prime)
+        fraction_bits = extract_fraction_bits(sqrt_val, bit_count)
+        results.append((prime, fraction_bits))
+    return results
+
+```
+
+This function:
+
+1.Estimates an upper bound for finding the first prime_count primes using a formula derived from the Prime Number Theorem
+2.Generates primes up to this bound using the Sieve of Eratosthenes algorithm
+3.Takes the square root of each prime
+4.Extracts the fractional bits of each square root
+5.Returns a list of tuples containing each prime and its corresponding fractional bits
+
+```python
+def display_prime_sqrt_fractions():
+    """
+    Displays the square roots and fractional bits of the first 100 prime numbers.
+    """
+    prime_data = compute_prime_sqrt_fractions(100, 32)
+    print("First 32 bits of fractional parts of √p for the first 100 primes:\n")
+    for prime, bits in prime_data:
+        sqrt_val = math.sqrt(prime)
+        print(f"Prime: {prime:3d}, √{prime} ≈ {sqrt_val:.8f}")
+        print(f"Fractional bits: {bits}")
+        print("-" * 60)
+```
+
+This function formats and displays the results in a readable format, showing:
+
+* Each prime number
+* Its square root to 8 decimal places
+* The first 32 bits of the fractional part in binary
+
+**Algorithm Analysis**
+The bit extraction algorithm works by implementing the standard decimal-to-binary conversion for fractions:
+
+* For each bit position, we multiply the fractional part by 2
+* If the result is ≥ 1, we output a '1' bit and subtract 1
+* If the result is < 1, we output a '0' bit
+* We continue this process for the specified number of bits
+
+This technique is efficient and accurate within the limits of floating-point precision in Python.
+
+
+**Prime Number Generation**
+The code uses the Sieve of Eratosthenes algorithm to generate prime numbers efficiently. It also employs a clever optimization by estimating an upper bound for the nth prime using the Prime Number Theorem, which states that the nth prime is approximately n * ln(n).
+
+**Applications and Significance**
+This analysis of prime square root fractional bits can be used for:
+
+1. Testing the randomness properties of these irrational numbers
+2. Studying patterns in mathematical constants
+3. Potential applications in cryptography or random number generation
+4. Mathematical research into the distribution of digits in irrational numbers
+
+The resulting bit patterns from irrational square roots tend to behave statistically like random sequences, which makes them interesting for both theoretical and practical applications.
 
 ## Task 6: Proof of Work
 
