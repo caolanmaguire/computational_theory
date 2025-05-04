@@ -135,7 +135,7 @@ The function employs several important mathematical principles:
 **Horner's Method:** The implementation follows Horner's rule for polynomial evaluation, effectively computing
 
 **Multiplier (31):** The constant 31 is chosen for several reasons:
-* It's a prime number, which helps minimize collisions [[7]](https://computinglife.wordpress.com/2008/11/20/why-do-hash-functions-use-prime-numbers/)
+* It's a prime number, which helps minimize collisions [[4]](https://computinglife.wordpress.com/2008/11/20/why-do-hash-functions-use-prime-numbers/)
 * It's close to a power of 2 (32), allowing potential compiler optimizations
 * Empirical evidence shows it produces good distribution for text data
 
@@ -143,7 +143,7 @@ The function employs several important mathematical principles:
 **Modulus (101):** Using a prime number as the modulus:
 
 * Ensures relatively even distribution across the output range (0-100)
-* Reduces clustering of hash values [[7]](https://computinglife.wordpress.com/2008/11/20/why-do-hash-functions-use-prime-numbers/)
+* Reduces clustering of hash values [[4]](https://computinglife.wordpress.com/2008/11/20/why-do-hash-functions-use-prime-numbers/)
 * Provides a reasonable table size for small applications
 
 
@@ -154,17 +154,17 @@ The function employs several important mathematical principles:
 
 SHA-256 processes data in 512-bit blocks, but messages rarely align perfectly with this boundary. The padding ensures all messages are properly formatted before hashing by:
 
-**Appending the '1' bit:** The padding begins by appending "a single '1' bit" to the message Stack Exchange, represented as the byte 0x80 (binary 10000000) in the code [[9]](https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.180-4.pdf).
-Adding zero bytes: After the '1' bit, "enough zero bits are appended so that the length in bits of the padded message becomes congruent to 448, modulo 512" Stack Exchange [10]. This ensures the final padded message will be exactly 64 bits short of a complete 512-bit block.
-Appending the message length: Finally, "a 64-bit representation" of the original message length (in bits) is appended Stack Exchange [11]. This length value is stored as a big-endian integer occupying the last 64 bits of the padded message.
+**Appending the '1' bit:** The padding begins by appending "a single '1' bit" to the message Stack Exchange, represented as the byte 0x80 (binary 10000000) in the code [[5]](https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.180-4.pdf).
+Adding zero bytes: After the '1' bit, "enough zero bits are appended so that the length in bits of the padded message becomes congruent to 448, modulo 512" Stack Exchange [[6]](https://datatracker.ietf.org/doc/html/rfc3174). This ensures the final padded message will be exactly 64 bits short of a complete 512-bit block.
+Appending the message length: Finally, "a 64-bit representation" of the original message length (in bits) is appended Stack Exchange [[7]](https://math.leidenuniv.nl/scripties/StevensPhD.pdf). This length value is stored as a big-endian integer occupying the last 64 bits of the padded message.
 
-The calculation of padding bytes in the function uses the formula ((56 - (file_size_bytes + 1) % 64) % 64), which determines how many zero bytes must be added after the initial 0x80 byte to reach the proper alignment [12].
+The calculation of padding bytes in the function uses the formula ((56 - (file_size_bytes + 1) % 64) % 64), which determines how many zero bytes must be added after the initial 0x80 byte to reach the proper alignment [[8]](https://rizkia.staff.telkomuniversity.ac.id/files/2016/02/Practical-Cryptography-Niels-Ferguson-Bruce-Schneier.pdf).
 Why This Padding Scheme Matters
 This padding scheme serves several critical purposes:
 
-It ensures the message is a multiple of 512 bits, as required by the SHA-256 algorithm [13].
-The algorithm adds padding bits so "the message's length is precisely 64 bits less than a multiple of 512" Passwork Blog to accommodate the 64-bit length value [14].
-It makes the hash function resistant to length extension attacks by incorporating the message length in the hash calculation [15].
+It ensures the message is a multiple of 512 bits, as required by the SHA-256 algorithm [[9]](https://www.researchgate.net/publication/261394711_Security_Analysis_of_saltpassword_Hashes).
+The algorithm adds padding bits so "the message's length is precisely 64 bits less than a multiple of 512" Passwork Blog to accommodate the 64-bit length value [[10]](https://cacr.uwaterloo.ca/hac/).
+It makes the hash function resistant to length extension attacks by incorporating the message length in the hash calculation [[11]](https://link.springer.com/chapter/10.1007/11426639_28).
 
 ## Task 4: Prime Numbers
 
@@ -409,7 +409,7 @@ This experiment illustrates the core mechanism behind cryptocurrency mining oper
 
 ### Adding 1 to a Binary Number with a Turing Machine
 
-This project creates a Turing machine that adds 1 to a binary number. It shows key ideas from computer theory based on Alan Turing's famous 1936 paper [16]. The machine demonstrates what computer scientists call a "universal computation model" [17].
+This project creates a Turing machine that adds 1 to a binary number. It shows key ideas from computer theory based on Alan Turing's famous 1936 paper [[12]](https://londmathsoc.onlinelibrary.wiley.com/doi/abs/10.1112/plms/s2-42.1.230). The machine demonstrates what computer scientists call a "universal computation model" [[13]](https://www-2.dc.uba.ar/staff/becher/Hopcroft-Motwani-Ullman-2001.pdf).
 
 #### What is a Turing Machine?
 
@@ -420,11 +420,11 @@ A Turing machine has these basic parts:
 * A set of states (like modes the machine can be in)
 * A list of rules that tell the machine what to do next
 
-Turing machines are important because they can do any calculation that a modern computer can do, just more slowly [18].
+Turing machines are important because they can do any calculation that a modern computer can do, just more slowly [[14]](https://drive.uqu.edu.sa/_/mskhayat/files/MySubjects/20189FS%20ComputationTheory/Introduction%20to%20the%20theory%20of%20computation_third%20edition%20-%20Michael%20Sipser.pdf).
 
 #### Our Binary Adding Machine
 
-Our Turing machine has these states [19]:
+Our Turing machine has these states [[15]](https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf):
 
 * `init`: Starting state that moves to the rightmost digit
 * `add_one`: State that handles the adding operation
@@ -437,7 +437,7 @@ The machine works with these symbols:
 
 ##### Rules Table
 
-The rules that control our machine are [20]:
+The rules that control our machine are [[16]](https://www.cambridge.org/core/journals/mathematical-gazette/article/abs/introduction-to-metamathematics-by-s-c-kleene-pp-x-550-fl-3250-1952-noordhoff-groningen-northholland-publishing-co-amsterdam/9936DE90DBB4EB797F6C7C1AF9859DF5):
 
 ```pythons
 # First, find the number, furthest to the right
@@ -455,7 +455,7 @@ The rules that control our machine are [20]:
 
 ```
 
-These rules create what computer scientists call an "effective procedure" - a clear set of steps that always give the right answer [21].
+These rules create what computer scientists call an "effective procedure" - a clear set of steps that always give the right answer [[17]](https://books.google.ie/books?hl=en&lr=&id=nbOqAAAAQBAJ&oi=fnd&pg=PR13&dq=Davis,+M.+(1982).+%22Computability+and+Unsolvability%22.+Dover+Publications.&ots=4t7Vu5zoDG&sig=Cp9Xtt6LY4Thr81KqBUwXxgAC60&redir_esc=y#v=onepage&q&f=false).
 
 #### How It Works
 
@@ -473,16 +473,16 @@ For example, adding 1 to 1011 (decimal 11):
 4. It changes 0 to 1 and stops
 5. The result is 1100 (decimal 12)
 
-This shows how a computer can do math step by step [22].
+This shows how a computer can do math step by step [[18]](https://compcalc.github.io/public/church/church_calculi_1941.pdf).
 
 #### Why This Matters
 
 This simple Turing machine shows several important computer science ideas:
 
-* It runs in time proportional to the number of digits (O(n) complexity) [23]
+* It runs in time proportional to the number of digits (O(n) complexity) [[19]](https://theory.cs.princeton.edu/complexity/book.pdf)
 * It shows how even simple machines can do useful calculations
-* As computer pioneer Donald Knuth noted, complex operations can be built from simple ones [24]
-* It demonstrates a basic building block that can be combined to make more complex calculations [25]
+* As computer pioneer Donald Knuth noted, complex operations can be built from simple ones [[20]](https://api.pageplace.de/preview/DT0400.9780133488784_A23586207/preview-9780133488784_A23586207.pdf)
+* It demonstrates a basic building block that can be combined to make more complex calculations [[21]](https://books.google.ie/books?hl=en&lr=&id=0LpsXQV2kXAC&oi=fnd&pg=PR10&dq=Boolos,+G.+S.,+%26+Jeffrey,+R.+C.+(1989).+%22Computability+and+Logic%22.+Cambridge+University+Press.&ots=bWhFT_iNWl&sig=Rwh8mA5xA1uGgtuEbp_h0dJc7cQ&redir_esc=y#v=onepage&q&f=false)
 
 The machine is an example of how computers follow precise rules to solve problems, from the simplest calculator to the most powerful supercomputer.
 
@@ -553,48 +553,39 @@ By sorting every permutation of a small dataset and recording how many compariso
 [[3]FIPS PUB 180-4: Secure Hash Standard (SHA)](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf)
 
 
-
-[[4] Kernighan, B. & Ritchie, D. "The C Programming Language." Prentice Hall, 1978.](http://117.250.119.200:8080/jspui/bitstream/123456789/1373/1/%5BKernighan-Ritchie%5DThe_C_Programming_Language.pdf)
-
-[5] Torek, C. "Hash Functions: An Empirical Comparison." CodeProject, March 7, 2009.
-
-[6] Goodrich, M.T. & Tamassia, R. "Data Structures and Algorithms in Java." John Wiley & Sons, 2004.
-
-[[7] Nilson, F. "Why do hash functions use prime numbers?" Computing Life, July 1, 2009.](https://computinglife.wordpress.com/2008/11/20/why-do-hash-functions-use-prime-numbers/)
-
-[8] Bloch, J. "Effective Java." Addison-Wesley Professional, 2008.
+[[4] Nilson, F. "Why do hash functions use prime numbers?" Computing Life, July 1, 2009.](https://computinglife.wordpress.com/2008/11/20/why-do-hash-functions-use-prime-numbers/)
 
 
-[[9] NIST. "Federal Information Processing Standards Publication 180-4: Secure Hash Standard." August 2015.](https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.180-4.pdf)
+[[5] NIST. "Federal Information Processing Standards Publication 180-4: Secure Hash Standard." August 2015.](https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.180-4.pdf)
 
-[10] Eastlake, D. & Jones, P. "US Secure Hash Algorithm 1 (SHA1)." RFC 3174, IETF, September 2001.
+[[6] Eastlake, D. & Jones, P. "US Secure Hash Algorithm 1 (SHA1)." RFC 3174, IETF, September 2001.](https://datatracker.ietf.org/doc/html/rfc3174)
 
-[11] Stevens, M. "Attacks on Hash Functions and Applications." Mathematical Institute, Faculty of Science, Leiden University, 2012.
+[[7] Stevens, M. "Attacks on Hash Functions and Applications." Mathematical Institute, Faculty of Science, Leiden University, 2012.](https://math.leidenuniv.nl/scripties/StevensPhD.pdf)
 
-[12] Ferguson, N. & Schneier, B. "Practical Cryptography." Wiley Publishing, 2003.
+[[8] Ferguson, N. & Schneier, B. "Practical Cryptography." Wiley Publishing, 2003.](https://rizkia.staff.telkomuniversity.ac.id/files/2016/02/Practical-Cryptography-Niels-Ferguson-Bruce-Schneier.pdf)
 
-[13] Gauravaram, P. "Security Analysis of Salt⊕Password Hashes." International Conference on Advanced Computer Science Applications and Technologies, 2012.
+[[9] Gauravaram, P. "Security Analysis of Salt⊕Password Hashes." International Conference on Advanced Computer Science Applications and Technologies, 2012.](https://www.researchgate.net/publication/261394711_Security_Analysis_of_saltpassword_Hashes)
 
-[14] Menezes, A., van Oorschot, P. & Vanstone, S. "Handbook of Applied Cryptography." CRC Press, 1996.
+[[10] Menezes, A., van Oorschot, P. & Vanstone, S. "Handbook of Applied Cryptography." CRC Press, 1996.](https://cacr.uwaterloo.ca/hac/)
 
-[15] Kelsey, J. & Schneier, B. "Second Preimages on n-bit Hash Functions for Much Less than 2^n Work." Advances in Cryptology - EUROCRYPT 2005.
+[[11] Kelsey, J. & Schneier, B. "Second Preimages on n-bit Hash Functions for Much Less than 2^n Work." Advances in Cryptology - EUROCRYPT 2005.](https://link.springer.com/chapter/10.1007/11426639_28)
 
-[16] Turing, A. M. (1936). "On Computable Numbers, with an Application to the Entscheidungsproblem". Proceedings of the London Mathematical Society, s2-42(1), 230-265.
+[[12] Turing, A. M. (1936). "On Computable Numbers, with an Application to the Entscheidungsproblem". Proceedings of the London Mathematical Society, s2-42(1), 230-265.](https://londmathsoc.onlinelibrary.wiley.com/doi/abs/10.1112/plms/s2-42.1.230)
 
-[17] Hopcroft, J. E., & Ullman, J. D. (1979). "Introduction to Automata Theory, Languages, and Computation". Addison-Wesley.
+[[13] Hopcroft, J. E., & Ullman, J. D. (1979). "Introduction to Automata Theory, Languages, and Computation". Addison-Wesley.](https://www-2.dc.uba.ar/staff/becher/Hopcroft-Motwani-Ullman-2001.pdf)
 
-[18] Sipser, M. (2012). "Introduction to the Theory of Computation". Cengage Learning.
+[[14] Sipser, M. (2012). "Introduction to the Theory of Computation". Cengage Learning.](https://drive.uqu.edu.sa/_/mskhayat/files/MySubjects/20189FS%20ComputationTheory/Introduction%20to%20the%20theory%20of%20computation_third%20edition%20-%20Michael%20Sipser.pdf)
 
-[19] Minsky, M. L. (1967). "Computation: Finite and Infinite Machines". Prentice-Hall.
+[[15] Minsky, M. L. (1967). "Computation: Finite and Infinite Machines". Prentice-Hall.](https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf)
 
-[20] Kleene, S. C. (1952). "Introduction to Metamathematics". North-Holland.
+[[16] Kleene, S. C. (1952). "Introduction to Metamathematics". North-Holland.](https://www.cambridge.org/core/journals/mathematical-gazette/article/abs/introduction-to-metamathematics-by-s-c-kleene-pp-x-550-fl-3250-1952-noordhoff-groningen-northholland-publishing-co-amsterdam/9936DE90DBB4EB797F6C7C1AF9859DF5)
 
-[21] Davis, M. (1982). "Computability and Unsolvability". Dover Publications.
+[[17] Davis, M. (1982). "Computability and Unsolvability". Dover Publications.](https://books.google.ie/books?hl=en&lr=&id=nbOqAAAAQBAJ&oi=fnd&pg=PR13&dq=Davis,+M.+(1982).+%22Computability+and+Unsolvability%22.+Dover+Publications.&ots=4t7Vu5zoDG&sig=Cp9Xtt6LY4Thr81KqBUwXxgAC60&redir_esc=y#v=onepage&q&f=false)
 
-[22] Church, A. (1941). "The Calculi of Lambda-Conversion". Princeton University Press.
+[[18] Church, A. (1941). "The Calculi of Lambda-Conversion". Princeton University Press.](https://compcalc.github.io/public/church/church_calculi_1941.pdf)
 
-[23] Arora, S., & Barak, B. (2009). "Computational Complexity: A Modern Approach". Cambridge University Press.
+[[19] Arora, S., & Barak, B. (2009). "Computational Complexity: A Modern Approach". Cambridge University Press.](https://theory.cs.princeton.edu/complexity/book.pdf)
 
-[24] Knuth, D. E. (1997). "The Art of Computer Programming, Volume 1: Fundamental Algorithms". Addison-Wesley.
+[[20] Knuth, D. E. (1997). "The Art of Computer Programming, Volume 1: Fundamental Algorithms". Addison-Wesley.](https://api.pageplace.de/preview/DT0400.9780133488784_A23586207/preview-9780133488784_A23586207.pdf)
 
-[25] Boolos, G. S., & Jeffrey, R. C. (1989). "Computability and Logic". Cambridge University Press.
+[[21] Boolos, G. S., & Jeffrey, R. C. (1989). "Computability and Logic". Cambridge University Press.](https://books.google.ie/books?hl=en&lr=&id=0LpsXQV2kXAC&oi=fnd&pg=PR10&dq=Boolos,+G.+S.,+%26+Jeffrey,+R.+C.+(1989).+%22Computability+and+Logic%22.+Cambridge+University+Press.&ots=bWhFT_iNWl&sig=Rwh8mA5xA1uGgtuEbp_h0dJc7cQ&redir_esc=y#v=onepage&q&f=false)
