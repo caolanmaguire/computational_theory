@@ -357,9 +357,9 @@ The resulting bit patterns from irrational square roots tend to behave statistic
 
 ## Task 6: Proof of Work
 
-This exercise explores English words yielding SHA256 hashes with the maximum number of leading zero bits, applying the same principle that underpins blockchain "proof of work" systems as outlined in Nakamoto's seminal publication [26].
+This exercise explores English words yielding SHA256 hashes with the maximum number of leading zero bits, applying the same principle that underpins blockchain "proof of work" systems as outlined in Nakamoto's seminal publication.
 Methodology
-The approach leverages Python's hashlib library [27] to generate SHA256 hashes [28] and examines their binary structure:
+The approach leverages Python's hashlib library to generate SHA256 hashes  and examines their binary structure:
 
 ```python
 # Proof of work component
@@ -588,4 +588,4 @@ By sorting every permutation of a small dataset and recording how many compariso
 
 [[20] Knuth, D. E. (1997). "The Art of Computer Programming, Volume 1: Fundamental Algorithms". Addison-Wesley.](https://api.pageplace.de/preview/DT0400.9780133488784_A23586207/preview-9780133488784_A23586207.pdf)
 
-[[21] Boolos, G. S., & Jeffrey, R. C. (1989). "Computability and Logic". Cambridge University Press.](https://books.google.ie/books?hl=en&lr=&id=0LpsXQV2kXAC&oi=fnd&pg=PR10&dq=Boolos,+G.+S.,+%26+Jeffrey,+R.+C.+(1989).+%22Computability+and+Logic%22.+Cambridge+University+Press.&ots=bWhFT_iNWl&sig=Rwh8mA5xA1uGgtuEbp_h0dJc7cQ&redir_esc=y#v=onepage&q&f=false)
+[[2] Boolos, G. S., & Jeffrey, R. C. (1989). "Computability and Logic". Cambridge University Press.](https://books.google.ie/books?hl=en&lr=&id=0LpsXQV2kXAC&oi=fnd&pg=PR10&dq=Boolos,+G.+S.,+%26+Jeffrey,+R.+C.+(1989).+%22Computability+and+Logic%22.+Cambridge+University+Press.&ots=bWhFT_iNWl&sig=Rwh8mA5xA1uGgtuEbp_h0dJc7cQ&redir_esc=y#v=onepage&q&f=false)
